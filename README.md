@@ -10,10 +10,22 @@ Analytics, error tracking, logs, and LLM call capture for PHP servers.
 
 ## Install
 
+Register the VCS repo with Composer, then require the package:
+
+```bash
+composer config repositories.strawberry vcs https://github.com/steventruong/strawberry-php
+composer require strawberry/sdk:v1.0.0
+```
+
+Or by hand in `composer.json`:
+
 ```json
 {
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/steventruong/strawberry-php" }
+    ],
     "require": {
-        "strawberry/sdk": "^1.0"
+        "strawberry/sdk": "v1.0.0"
     }
 }
 ```
@@ -23,8 +35,8 @@ Analytics, error tracking, logs, and LLM call capture for PHP servers.
 ```php
 use Strawberry\Strawberry;
 
-Strawberry::init('sk_live_...', [
-    'host' => 'https://app.gotstrawberry.com',
+Strawberry::init('berry_your_api_key', [
+    'host' => 'https://straw.berryagents.com',
     'environment' => 'production',
     'release_version' => '2026.04.17',
     'batch_size' => 100,
